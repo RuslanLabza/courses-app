@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  padding: 15px 30px;
+
+  &__logo {
+    display: block;
+    height: 48px;
+  }
+}

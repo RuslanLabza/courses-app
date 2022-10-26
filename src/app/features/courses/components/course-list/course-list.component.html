@@ -1,0 +1,17 @@
+<div class="course-list">
+  <app-course-card
+    [courseIsEditable]="coursesIsEditable"
+    *ngFor="let course of courses"
+    [course]="course"
+  >
+    <app-button [buttonText]="buttonTextCard"></app-button>
+    <app-button
+      *ngIf="coursesIsEditable"
+      [iconName]="iconRemoveCard"
+    ></app-button>
+    <app-button
+      *ngIf="coursesIsEditable"
+      [iconName]="iconEditCard"
+    ></app-button>
+  </app-course-card>
+</div>
