@@ -1,0 +1,131 @@
+<form
+  class="form"
+  [formGroup]="editCreateForm"
+  (ngSubmit)="onSubmit()"
+  #f="ngForm"
+>
+  <h1 class="form__header-text">Course edit/create page</h1>
+  <div class="form__content">
+    <div class="form__block">
+      <div class="form__section">
+        <h2>Main Info</h2>
+        <div class="form__input__block">
+          <label class="form__input__label" for="name">Title</label>
+          <input
+            type="text"
+            id="title"
+            class="form__input"
+            formControlName="title"
+            placeholder="Input text"
+          />
+          <span
+            class="form__input__error-message"
+            *ngIf="title?.errors?.['required'] && (title?.touched || f.submitted)"
+            >Title is required</span
+          >
+        </div>
+        <div class="form__input__block">
+          <label class="form__input__label" for="name">Description</label>
+          <textarea
+            id="description"
+            class="form__input"
+            formControlName="description"
+            placeholder="Input text"
+            [attr.rows]="10"
+          ></textarea>
+          <span
+            class="form__input__error-message"
+            *ngIf="description?.errors?.['required'] && (description?.touched || f.submitted)"
+            >Description is required</span
+          >
+        </div>
+      </div>
+      <div class="form__section">
+        <h2>Authors</h2>
+        <div class="form__input__block" formGroupName="newAuthor">
+          <label class="form__input__label" for="author-name"
+            >Author Name</label
+          >
+          <div class="form__group">
+            <input
+              type="text"
+              id="author-name"
+              class="form__input form__input_author-name"
+              formControlName="name"
+              placeholder="Input text"
+            />
+            <app-button
+              type="button"
+              [buttonText]="buttonTextCreateAuthor"
+              (click)="onNewAuthorSubmit()"
+            ></app-button>
+          </div>
+          <span
+            class="form__input__error-message"
+            *ngIf="
+              !authorName?.valid &&
+              (authorName?.touched || newAuthorIsSubmitted)
+            "
+            >Name must contain only latin letters and numbers</span
+          >
+        </div>
+        <div formArrayName="authors">
+          <p class="form__input__label">Authors List</p>
+          <div class="form__list">
+            <div
+              *ngFor="let author of authors.controls; let i = index"
+              class="form__input__block form__input__block_author-list"
+            >
+              <input
+                class="form__input_author-list"
+                type="text"
+                [formControlName]="i"
+                [value]="author.value"
+                [attr.disabled]="true"
+                [ngStyle]="{ width: calculateWidth(author.value) }"
+              />
+              <button
+                (click)="onRemoveAuthor(i)"
+                class="form__button_author-list"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form__section">
+        <h2>Duration</h2>
+        <div class="form__input__block">
+          <label class="form__input__label" for="duration">Duration</label>
+          <div class="form__group form__group_duration">
+            <input
+              type="number"
+              id="duration"
+              class="form__input form__input_duration"
+              formControlName="duration"
+              placeholder="Input text"
+            />
+            <p>
+              <b>{{ duration?.value | duration }}</b> hours
+            </p>
+          </div>
+          <span
+            class="form__input__error-message"
+            *ngIf="duration?.errors?.['required'] && (duration?.touched || f.submitted)"
+            >Duration is required</span
+          >
+          <span
+            class="form__input__error-message"
+            *ngIf="duration?.errors?.['min'] && (duration?.touched || f.submitted)"
+            >Duration should be not less than 0</span
+          >
+        </div>
+      </div>
+      <div class="form__group form__group_button">
+        <app-button type="cancel" [buttonText]="buttonTextCancel"></app-button>
+        <app-button type="submit" [buttonText]="buttonTextCreate"></app-button>
+      </div>
+    </div>
+  </div>
+</form>

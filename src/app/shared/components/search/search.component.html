@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="form__block">
+    <div class="form__input__block">
+      <input
+        type="text"
+        id="search"
+        class="form__input"
+        ngModel
+        name="search"
+        placeholder="Input text"
+      />
+      <app-button type="submit" [buttonText]="buttonTextSearch"></app-button>
+    </div>
+  </div>
+</form>

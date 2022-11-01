@@ -1,0 +1,86 @@
+.form {
+  --button-width: 100%;
+  --button-margin: 0 0 40px 0;
+  width: 40.625%;
+  margin: 0 auto;
+
+  &__header-text {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.25;
+    color: #333e48;
+    text-align: center;
+    margin-top: 200px;
+    margin-bottom: 50px;
+  }
+
+  &__content {
+    padding: 60px 10px;
+    background: white;
+    border: 1px solid #cfcfcf;
+    border-radius: 4px;
+  }
+
+  &__block {
+    margin: 0 auto;
+    width: 50%;
+  }
+
+  &__input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #cfcfcf;
+    border-radius: 4px;
+    padding: 13px 16px;
+    color: #cfcfcf;
+
+    &__block {
+      margin-bottom: 40px;
+    }
+    &__label {
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.25;
+      color: #333e48;
+    }
+    &__error-message {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.25;
+      color: #ff0000;
+    }
+
+    &::placeholder {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #cfcfcf;
+    }
+
+    &.ng-invalid.ng-touched {
+      border: 1px solid #ff0000;
+    }
+  }
+
+  &__footer {
+    &__text {
+      text-align: center;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.25;
+      color: #333e48;
+    }
+    &__link {
+      text-decoration: none;
+      color: #333e48;
+      font-weight: 700;
+    }
+  }
+
+  &.ng-submitted {
+    & .ng-invalid {
+      border: 1px solid #ff0000;
+    }
+  }
+}

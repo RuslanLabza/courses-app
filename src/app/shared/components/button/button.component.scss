@@ -7,6 +7,8 @@
   display: block;
   transition: background-color 0.5s, color 0.5s;
   cursor: pointer;
+  width: var(--button-width, "auto");
+  margin: var(--button-margin, "0 0 0 0");
 
   &__text {
     line-height: 1.8;
@@ -21,7 +23,6 @@
   }
 
   &:hover,
-  &:focus,
   .active {
     background-color: white;
     color: #007298;

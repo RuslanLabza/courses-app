@@ -10,3 +10,19 @@
     height: 48px;
   }
 }
+::ng-deep {
+  .header__content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .header__text {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .header__button {
+      margin-left: 26px;
+    }
+  }
+}

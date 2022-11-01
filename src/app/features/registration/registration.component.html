@@ -1,1 +1,82 @@
-<p>registration works!</p>
+<header>
+  <app-header></app-header>
+</header>
+<main>
+  <form
+    class="form"
+    [formGroup]="registrationForm"
+    (ngSubmit)="onSubmit()"
+    #f="ngForm"
+  >
+    <h1 class="form__header-text">Registration</h1>
+    <div class="form__content">
+      <div class="form__block">
+        <div class="form__input__block">
+          <label class="form__input__label" for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            class="form__input"
+            formControlName="name"
+            placeholder="Input text"
+          />
+          <span
+            class="form__input__error-message"
+            *ngIf="name?.errors?.['required'] && (name?.touched || f.submitted)"
+            >Name is required</span
+          >
+          <span
+            class="form__input__error-message"
+            *ngIf="!name?.errors?.['required'] && name?.errors?.['minlength'] && (name?.touched || f.submitted)"
+            >Name must be at least 6 characters long.</span
+          >
+        </div>
+        <div class="form__input__block">
+          <label class="form__input__label" for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="form__input"
+            formControlName="email"
+            placeholder="Input text"
+          />
+          <span
+            class="form__input__error-message"
+            *ngIf="email?.errors?.['required'] && (email?.touched || f.submitted)"
+            >Email is required</span
+          >
+          <span
+            class="form__input__error-message"
+            *ngIf="!email?.errors?.['required'] && email?.errors?.['emailIsNotValid'] && (email?.touched || f.submitted)"
+            >Email is not valid</span
+          >
+        </div>
+        <div class="form__input__block">
+          <label class="form__input__label" for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="form__input"
+            formControlName="password"
+            placeholder="Input text"
+          />
+          <span
+            class="form__input__error-message"
+            *ngIf="password?.errors?.['required'] && (password?.touched || f.submitted)"
+            >Password is required</span
+          >
+        </div>
+        <app-button
+          type="submit"
+          [buttonText]="buttonTextRegistration"
+        ></app-button>
+        <div class="form__footer">
+          <p class="form__footer__text">
+            If you have an account you may
+            <a class="form__footer__link" href="#">Login</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </form>
+</main>

@@ -1,0 +1,71 @@
+.form {
+  --button-width: auto;
+  --button-margin: 0 0 0 0;
+  width: 78%;
+
+  &__header-text {
+    text-align: left;
+  }
+
+  &__content {
+    padding: 60px 65px;
+  }
+
+  &__section + &__section {
+    border-top: 1px solid #cfcfcf;
+    margin-bottom: 40px;
+  }
+
+  &__block {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__group {
+    display: flex;
+    justify-content: space-between;
+
+    &_duration {
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    &_button {
+      justify-content: flex-end;
+      gap: 20px;
+    }
+  }
+
+  &__input {
+    &_author-name,
+    &_duration {
+      margin-right: 10px;
+      width: 75%;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__input__block_author-list {
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+
+  &__input_author-list {
+    background: none;
+    border: none;
+    margin-right: 5px;
+    padding: 0;
+  }
+
+  &__button_author-list {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-weight: 700;
+  }
+}

@@ -7,6 +7,7 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
   styleUrls: ["./button.component.scss"],
 })
 export class ButtonComponent implements OnInit {
+  @Input("type") buttonType?: string;
   @Input() buttonText?: string;
   @Input() iconName?: IconProp;
 

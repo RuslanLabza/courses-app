@@ -1,17 +1,25 @@
-<app-header>
-  <div class="header__content">
-    <p class="header__text">Harry Potter</p>
-    <app-button
-      class="header__button"
-      [buttonText]="buttonTextHeader"
-    ></app-button>
+<header>
+  <app-header>
+    <div class="header__content">
+      <p class="header__text">Harry Potter</p>
+      <app-button
+        type="button"
+        class="header__button"
+        [buttonText]="buttonTextHeader"
+      ></app-button>
+    </div>
+  </app-header>
+</header>
+<main>
+  <div class="container">
+    <app-info [title]="titleInfo" [text]="textInfo">
+      <app-button type="button" [buttonText]="buttonTextInfo"></app-button>
+    </app-info>
+    <app-search></app-search>
+    <app-course-list
+      class="course-list"
+      [courses]="mockedCourseList"
+      [coursesIsEditable]="true"
+    ></app-course-list>
   </div>
-</app-header>
-<app-info [title]="titleInfo" [text]="textInfo">
-  <app-button [buttonText]="buttonTextInfo"></app-button>
-</app-info>
-<app-course-list
-  class="course-list"
-  [courses]="mockedCourseList"
-  [coursesIsEditable]="true"
-></app-course-list>
+</main>

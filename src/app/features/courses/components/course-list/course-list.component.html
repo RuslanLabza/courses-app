@@ -4,7 +4,7 @@
     *ngFor="let course of courses"
     [course]="course"
   >
-    <app-button [buttonText]="buttonTextCard"></app-button>
+    <app-button type="button" [buttonText]="buttonTextCard"></app-button>
     <app-button
       *ngIf="coursesIsEditable"
       [iconName]="iconRemoveCard"

@@ -5,9 +5,11 @@
     <div class="course-card__side-block">
       <div class="course-card__info">
         <p class="course-card__authors"><b>Authors:</b> {{ authors }}</p>
-        <p class="course-card__duration"><b>Duration:</b> {{ duration }}</p>
+        <p class="course-card__duration">
+          <b>Duration:</b> {{ duration | duration }} hours
+        </p>
         <p class="course-card__creation-date">
-          <b>Created:</b> {{ creationDate }}
+          <b>Created:</b> {{ creationDate | creationDate }}
         </p>
       </div>
       <div class="course-card__menu">
