@@ -69,7 +69,7 @@
             >Name must contain only latin letters and numbers</span
           >
         </div>
-        <div formArrayName="authors">
+        <div *ngIf="authors$ | async; else loading" formArrayName="authors">
           <p class="form__input__label">Authors List</p>
           <div class="form__list">
             <div
@@ -129,3 +129,5 @@
     </div>
   </div>
 </form>
+
+<ng-template #loading> Loading Authors... </ng-template>

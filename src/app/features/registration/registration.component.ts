@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { AuthService } from "src/app/auth/services/auth.service";
+import { User } from "src/app/shared/types/user";
 import { emailValidator } from "src/app/shared/utils/email-validator";
 
 @Component({
@@ -11,16 +13,16 @@ export class RegistrationComponent implements OnInit {
   registrationForm!: FormGroup;
   buttonTextRegistration = "login";
 
-  constructor() {}
+  constructor(private auth: AuthService) {}
 
   ngOnInit(): void {
     this.registrationForm = new FormGroup({
-      name: new FormControl(null, [
+      name: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required, emailValidator()]),
+      password: new FormControl(null, [
         Validators.required,
         Validators.minLength(6),
       ]),
-      email: new FormControl(null, [Validators.required, emailValidator()]),
-      password: new FormControl(null, [Validators.required]),
     });
   }
 
@@ -35,6 +37,11 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.registrationForm);
+    const user: User = {
+      name: this.registrationForm.value.name,
+      email: this.registrationForm.value.email,
+      password: this.registrationForm.value.password,
+    };
+    this.auth.register(user).subscribe();
   }
 }

@@ -1,7 +1,17 @@
-<!--To check needed page, please uncomment tag for this
-page and comment other tags.-->
-
-<app-courses> </app-courses>
-<!-- <app-edit-create> </app-edit-create> -->
-<!-- <app-login> </app-login> -->
-<!-- <app-registration></app-registration> -->
+<header>
+  <app-header>
+    <div class="header__content">
+      <p *ngIf="isAuthorized$ | async" class="header__text">
+        {{ name$ | async }}
+      </p>
+      <app-button
+        *ngIf="isAuthorized$ | async"
+        type="button"
+        class="header__button"
+        buttonText="logout"
+        (click)="logout()"
+      ></app-button>
+    </div>
+  </app-header>
+</header>
+<router-outlet></router-outlet>

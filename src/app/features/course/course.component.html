@@ -1,1 +1,8 @@
-<p>course works!</p>
+<main>
+  <h1>{{ course.title }}</h1>
+  <hr />
+  <h2>Description:</h2>
+  <p>{{ course.description }}</p>
+  <hr />
+  <app-button buttonText="Go to Courses" (click)="onShowCourses()"></app-button>
+</main>

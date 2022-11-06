@@ -4,14 +4,20 @@
     *ngFor="let course of courses"
     [course]="course"
   >
-    <app-button type="button" [buttonText]="buttonTextCard"></app-button>
+    <app-button
+      type="button"
+      [buttonText]="buttonTextCard"
+      (click)="onShowCourse(course.id)"
+    ></app-button>
     <app-button
       *ngIf="coursesIsEditable"
       [iconName]="iconRemoveCard"
+      (click)="onRemoveCourse(course.id)"
     ></app-button>
     <app-button
       *ngIf="coursesIsEditable"
       [iconName]="iconEditCard"
+      (click)="onEditCourse(course.id)"
     ></app-button>
   </app-course-card>
 </div>

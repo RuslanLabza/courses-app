@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { Router } from "@angular/router";
+import { AuthService } from "src/app/auth/services/auth.service";
 
 @Component({
   selector: "app-login",
@@ -9,11 +11,15 @@ import { NgForm } from "@angular/forms";
 export class LoginComponent implements OnInit {
   buttonTextLogin = "login";
 
-  constructor() {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    console.log(form.value);
+    this.auth
+      .login({ email: form.value.email, password: form.value.password })
+      .subscribe(() => {
+        this.router.navigate(["/courses"]);
+      });
   }
 }

@@ -8,7 +8,7 @@ export class CreationDatePipe implements PipeTransform {
     return creationDate
       .split("/")
       .map((num: string) => {
-        return +num < 10 ? "0" + num : num;
+        return +num < 10 ? "0" + +num : +num;
       })
       .join(".");
   }

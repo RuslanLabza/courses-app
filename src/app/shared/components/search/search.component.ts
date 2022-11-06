@@ -17,6 +17,6 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    this.userSearch.emit(form.value);
+    this.userSearch.emit(form.value.search);
   }
 }

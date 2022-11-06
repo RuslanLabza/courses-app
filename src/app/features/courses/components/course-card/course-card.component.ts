@@ -1,13 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
-
-export interface Course {
-  id: string;
-  title: string;
-  description: string;
-  creationDate: string;
-  duration: number;
-  authors: string[];
-}
+import { AuthorsStoreService } from "src/app/services/authors-store.service";
+import { Author } from "src/app/shared/types/author";
+import { Course } from "src/app/shared/types/course";
 
 @Component({
   selector: "app-course-card",
@@ -16,7 +10,7 @@ export interface Course {
 })
 export class CourseCardComponent implements OnInit {
   @Input() course!: Course;
-  @Input() courseIsEditable!: boolean;
+  @Input() courseIsEditable!: boolean | null;
 
   title!: string;
   description!: string;
@@ -29,8 +23,10 @@ export class CourseCardComponent implements OnInit {
   ngOnInit(): void {
     this.title = this.course.title;
     this.description = this.course.description;
-    this.creationDate = this.course.creationDate;
+    this.creationDate = this.course.creationDate!;
     this.duration = this.course.duration;
-    this.authors = this.course.authors.join(", ");
+    this.authors = this.course.authors
+      .map((author: string | Author) => (<Author>author).name)
+      .join(", ");
   }
 }
