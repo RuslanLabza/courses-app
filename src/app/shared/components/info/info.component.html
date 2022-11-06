@@ -1,5 +1,5 @@
 <div class="info">
   <h2 class="info__title">{{ title }}</h2>
-  <p *ngIf="text" class="info__text">{{ text }}</p>
-  <ng-content></ng-content>
+  <p *ngIf="isAdmin$ | async" class="info__text">{{ text }}</p>
+  <ng-content *ngIf="isAdmin$ | async"></ng-content>
 </div>

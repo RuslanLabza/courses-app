@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
-import { AuthService } from "src/app/auth/services/auth.service";
-import { AuthorsStoreService } from "src/app/services/authors-store.service";
 import { CoursesStoreService } from "src/app/services/courses-store.service";
 import { Course } from "src/app/shared/types/course";
 import { CoursesSearchBody } from "src/app/shared/types/coursesServiceRequestsResponses";
@@ -14,11 +12,6 @@ import { UserStoreService } from "src/app/user/services/user-store.service";
   styleUrls: ["./courses.component.scss"],
 })
 export class CoursesComponent implements OnInit {
-  buttonTextHeader = "logout";
-  buttonTextInfo = "add new course";
-  titleInfo = "your list is empty";
-  textInfo = "Please use 'Add New Course' button to add your first course";
-
   courseList$!: Observable<Course[]>;
   coursesIsEditable$!: Observable<boolean>;
 

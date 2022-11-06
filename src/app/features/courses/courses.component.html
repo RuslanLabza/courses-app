@@ -1,21 +1,19 @@
-<main>
-  <div class="container">
-    <app-info
-      *ngIf="!(courseList$ | async)!.length"
-      [title]="titleInfo"
-      [text]="textInfo"
-    >
-      <app-button
-        type="button"
-        [buttonText]="buttonTextInfo"
-        (click)="onAddCourse()"
-      ></app-button>
-    </app-info>
-    <app-search (userSearch)="onSearchCourses($event)"></app-search>
-    <app-course-list
-      class="course-list"
-      [courses]="courseList$ | async"
-      [coursesIsEditable]="coursesIsEditable$ | async"
-    ></app-course-list>
-  </div>
+<main class="container">
+  <app-info
+    *ngIf="!(courseList$ | async)!.length"
+    title="your list is empty"
+    text="Please use 'Add New Course' button to add your first course"
+  >
+    <app-button
+      type="button"
+      buttonText="add new course"
+      (click)="onAddCourse()"
+    ></app-button>
+  </app-info>
+  <app-search (userSearch)="onSearchCourses($event)"></app-search>
+  <app-course-list
+    class="course-list"
+    [courses]="courseList$ | async"
+    [coursesIsEditable]="coursesIsEditable$ | async"
+  ></app-course-list>
 </main>

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { AuthorsStoreService } from "src/app/services/authors-store.service";
 import { Author } from "src/app/shared/types/author";
 import { Course } from "src/app/shared/types/course";
 

@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { Observable } from "rxjs";
+import { UserStoreService } from "src/app/user/services/user-store.service";
 
 @Component({
   selector: "app-info",
@@ -8,8 +10,11 @@ import { Component, Input, OnInit } from "@angular/core";
 export class InfoComponent implements OnInit {
   @Input() title = "";
   @Input() text?: string;
+  isAdmin$!: Observable<boolean | null>;
 
-  constructor() {}
+  constructor(private userStoreService: UserStoreService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.isAdmin$ = this.userStoreService.isAdmin$;
+  }
 }

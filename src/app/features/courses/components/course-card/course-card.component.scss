@@ -21,14 +21,14 @@
   }
 
   &__description {
-    width: 65.5%;
+    width: 60.5%;
     font-size: 1rem;
     line-height: 1.25;
     color: #333e48;
   }
 
   &__side-block {
-    width: 30%;
+    width: 35%;
   }
 
   &__info {
@@ -43,5 +43,6 @@
     justify-content: space-between;
     align-items: center;
     gap: 5px;
+    flex-wrap: wrap;
   }
 }

@@ -63,14 +63,11 @@
             >Password must be at least 6 characters long.</span
           >
         </div>
-        <app-button
-          type="submit"
-          [buttonText]="buttonTextRegistration"
-        ></app-button>
+        <app-button type="submit" buttonText="submit"></app-button>
         <div class="form__footer">
           <p class="form__footer__text">
             If you have an account you may
-            <a class="form__footer__link" href="#">Login</a>
+            <a class="form__footer__link" routerLink="/login">Login</a>
           </p>
         </div>
       </div>

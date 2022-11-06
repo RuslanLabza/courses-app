@@ -14,7 +14,6 @@ import { mapAuthorsIdsToObject } from "src/app/shared/utils/map-authors-id-to-na
   styleUrls: ["./course-list.component.scss"],
 })
 export class CourseListComponent implements OnInit, OnDestroy {
-  buttonTextCard = "show course";
   iconRemoveCard = faTrashCan;
   iconEditCard = faPencil;
 

@@ -28,9 +28,6 @@ export class EditCreateFormComponent implements OnInit, OnDestroy {
   authors$!: Observable<(string | Author)[] | undefined>;
   authorsSubs!: Subscription;
   newAuthorIsSubmitted = false;
-  buttonTextCreateAuthor = "create author";
-  buttonTextCancel = "cancel";
-  buttonTextCreate = "create course";
 
   constructor(
     private coursesStoreService: CoursesStoreService,
@@ -132,7 +129,7 @@ export class EditCreateFormComponent implements OnInit, OnDestroy {
   }
 
   calculateWidth(authorName: string) {
-    return `${authorName.length * 7}px`;
+    return `${authorName.length * 8}px`;
   }
 
   ngOnDestroy(): void {

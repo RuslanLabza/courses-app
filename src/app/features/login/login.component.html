@@ -45,11 +45,13 @@
             >Password is required</span
           >
         </div>
-        <app-button type="submit" [buttonText]="buttonTextLogin"></app-button>
+        <app-button type="submit" buttonText="login"></app-button>
         <div class="form__footer">
           <p class="form__footer__text">
             If you don't have an account you may
-            <a class="form__footer__link" href="#">Registration</a>
+            <a class="form__footer__link" routerLink="/registration"
+              >Registration</a
+            >
           </p>
         </div>
       </div>

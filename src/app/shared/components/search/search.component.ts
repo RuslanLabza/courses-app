@@ -7,8 +7,6 @@ import { NgForm } from "@angular/forms";
   styleUrls: ["../../styles/form.scss", "./search.component.scss"],
 })
 export class SearchComponent implements OnInit {
-  buttonTextSearch = "search";
-
   @Input() inputPlaceholder?: string;
   @Output() userSearch = new EventEmitter<string>();
 

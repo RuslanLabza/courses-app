@@ -18,7 +18,6 @@ export enum EditCreateState {
   styleUrls: ["./edit-create.component.scss"],
 })
 export class EditCreateComponent implements OnInit, OnDestroy {
-  buttonTextHeader = "Logout";
   authorsSubs?: Subscription;
   private course$$ = new BehaviorSubject<{
     state: EditCreateState;

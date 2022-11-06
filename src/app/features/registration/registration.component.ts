@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 import { AuthService } from "src/app/auth/services/auth.service";
 import { User } from "src/app/shared/types/user";
 import { emailValidator } from "src/app/shared/utils/email-validator";
@@ -11,9 +12,8 @@ import { emailValidator } from "src/app/shared/utils/email-validator";
 })
 export class RegistrationComponent implements OnInit {
   registrationForm!: FormGroup;
-  buttonTextRegistration = "login";
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.registrationForm = new FormGroup({
@@ -42,6 +42,8 @@ export class RegistrationComponent implements OnInit {
       email: this.registrationForm.value.email,
       password: this.registrationForm.value.password,
     };
-    this.auth.register(user).subscribe();
+    this.auth.register(user).subscribe(() => {
+      this.router.navigate(["/login"]);
+    });
   }
 }

@@ -9,8 +9,6 @@ import { AuthService } from "src/app/auth/services/auth.service";
   styleUrls: ["../../shared/styles/form.scss", "./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
-  buttonTextLogin = "login";
-
   constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
